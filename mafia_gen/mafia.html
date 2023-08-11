@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="mafia.css">
+      <title>Document</title>
+  </head>
+
+  <body>
+
+      <div id="start-buttons" class="start-buttons">
+          <div class="start-buttons-box">
+              <button type="button" class="gen-buttons" onclick="vanilla_game()">Vanila</button>
+              <button type="button" class="gen-buttons" onclick="custom_game()">Custom</button>
+          </div>
+
+      </div>
+
+      <div id="vanilla-game" class="background-block">
+          <div class="button_for_gen">
+              <div id="gen-button" class="but">
+                  <button id="button_for_gen" class="gen-buttons" onclick="gen_roles()">generate</button>
+              </div>
+          </div>
+          <div class="all-all" id="all"></div>
+      </div>
+
+      <div id="custom-game" class="background-block">
+          <div class="info-text">
+              <div>
+                Welcome to the Custom Role Generator! Please specify the number of players and the roles you'd like to include in your game, along with the desired quantity for each role.
+              </div>
+              <div>
+                Important: Make sure to input all roles except for "citizen". It will be filled automatically!
+              </div>
+          </div>
+
+          <div class="input-form">
+              <form action="/action_page.php">
+                  <div>
+                      <div>
+                          <label for="fname">Players number</label>
+                      </div>
+                      <div class="form-section">
+                          <input type="number" id="nplayers" name="nplayers" class="input-bar-long">
+                          <input type="button" id="nplayers-button" class="gen-buttons" value="sub"
+                              onclick="get_player_number()">
+                      </div>
+                      <br>
+                      <div>
+                          <label for="fname">Role</label>
+                      </div>
+                      <div class="form-section">
+                          <input type="text" id="role-name" name="nplayers" class="input-bar-long">
+                          <input type="number" id="n-role-players" name="nplayers" class="input-bar-short" value=1>
+                          <input type="button" id="role-players-button" class="gen-buttons" value="sub"
+                              onclick="get_role()">
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <br>
+          <div class="button_for_gen">
+              <div id="gen-custom-button">
+                  <button id="" class="gen-buttons" onclick="gen_custom_roles()">generate</button>
+              </div>
+          </div>
+
+
+          <div class="all-all" id="c-all"></div>
+      </div>
+
+
+
+
+      <script type="text/javascript">
+          var game_type = ""
+
+          /*vanilla*/
+          var players = 10;
+          var roles = ["mafia", "mafia", "don", "police", "citizen", "citizen",
+              "citizen", "citizen", "citizen", "citizen"
+          ];
+          var num = 1;
+
+          /*custom*/
+
+          var c_player_number = 0
+          var c_role_name = ''
+          var c_n_role_players = 0
+          var c_roles = [];
+
+          function gen_custom_roles() {
+
+              game_type = "custom"
+
+              document.getElementById("c-all").innerHTML += "<div id='role-" + num +
+              "-block' class='role-block'></div>";
+              document.getElementById("role-" + num + "-block").innerHTML += "<div>------------- GAME " + num +
+                  " -------------</div>";
+
+              if (c_roles.length < c_player_number) {
+                  for (var a = c_roles.length; a < c_player_number; a++) {
+                      c_roles.push('citizen')
+                  }
+
+              };
+
+              c_roles.sort(() => Math.random() - 0.5);
+
+              for (var l = 0; l < c_player_number; l++) {
+                  var role_num = l + 1
+                  document.getElementById("role-" + num + "-block").innerHTML += "<div class='player-role'>Player: " +
+                      role_num + " Role: " + c_roles[l] + "</div>"
+                  console.log("player: ", role_num, "role: ", c_roles[l]);
+
+              };
+
+              /*document.getElementById("role-"+num+"-block").innerHTML += c_roles;*/
+              num++;
+
+              var scrollInterval = document.documentElement.scrollTop = document.documentElement.scrollHeight;
+          };
+
+          function gen_roles() {
+
+              game_type = "vanilla"
+
+              document.getElementById("all").innerHTML += "<div id='role-" + num + "-block' class='role-block'></div>";
+              document.getElementById("role-" + num + "-block").innerHTML += "<div>------------- GAME " + num +
+                  " -------------</div>";
+              for (var i = 1; i <= players; i++) {
+                  var x = Math.floor(Math.random() * roles.length);
+                  document.getElementById("role-" + num + "-block").innerHTML += "<div class='player-role'>Player: " +
+                      i + " Role: " + roles[x] + "</div>"
+                  console.log("player: ", i, "role: ", roles[x]);
+                  roles.splice(x, 1);
+
+              };
+              num++;
+              roles = ["mafia", "mafia", "don", "police", "citizen", "citizen",
+                  "citizen", "citizen", "citizen", "citizen"
+              ];
+
+              var scrollInterval = document.documentElement.scrollTop = document.documentElement.scrollHeight;
+          };
+
+          function get_player_number() {
+              c_player_number = document.getElementById("nplayers").value;
+          };
+
+          function get_role() {
+              c_role_name = document.getElementById("role-name").value;
+              c_n_role_players = document.getElementById("n-role-players").value;
+
+              for (var j = 1; j <= c_n_role_players; j++) {
+                  c_roles.push(c_role_name);
+              }
+
+          }
+
+          function vanilla_game() {
+              document.getElementById("vanilla-game").style.display = "block";
+              document.getElementById("start-buttons").style.display = "none";
+          };
+
+          function custom_game() {
+              document.getElementById("custom-game").style.display = "block";
+              document.getElementById("start-buttons").style.display = "none";
+          };
+
+          window.onscroll = function () {
+              stop_button()
+          };
+
+          function stop_button() {
+
+              if (game_type = "vanilla") {
+
+                  if (document.documentElement.scrollTop > 1) {
+                      document.getElementById("gen-button").style.position = "fixed";
+                  } else {
+                      document.getElementById("gen-button").style.position = "static";
+                  }
+              }
+
+              if (game_type = "custom") {
+                  window.addEventListener('scroll', function () {
+                      var button = document.getElementById('gen-custom-button');
+                      var buttonOffset = button.offsetTop;
+                      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+
+                      if (scrollTop >= buttonOffset) {
+                          /*button.style.position = "fixed"
+                          button.style.top = 0*/
+                          button.classList.add('fixed');
+                      }
+                      if (document.documentElement.scrollTop <= 350) {
+                          button.classList.remove('fixed');
+                      }
+                  });
+              };
+
+          };
+      </script>
+
+
+  </body>
+
+  </html>
