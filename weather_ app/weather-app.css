@@ -1,0 +1,315 @@
+
+body{
+    margin: 0;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+  }
+::-webkit-scrollbar-thumb {
+    background: #05034b; 
+      
+}
+
+
+nav{
+    padding: 5px 0;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    /*background: rgb(79,79,79);
+    background: linear-gradient(90deg, rgba(79,79,79,1) 0%, rgba(43,43,43,1) 100%);*/
+    background: rgb(255,255,239);
+    background: linear-gradient(90deg, rgba(255,255,239,1) 0%, rgba(240,240,240,1) 65%, rgba(176,176,176,1) 100%);
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+nav img{
+    height: 100px;
+}
+
+nav div{
+    width: 33%;
+    display: flex;
+    justify-content: center;
+}
+
+nav .buttons{
+    display: flex;
+    
+}
+
+nav .buttons a{
+    margin-left: 5%;
+    font-size: 25px;
+    font-weight: bold;
+    color: #2c4b5c;
+    text-transform: uppercase;
+}
+
+nav .buttons a:hover {
+  border-bottom: 2px solid #2c4b5c; 
+}
+.weather-block1{
+    background: url(img/forest_mountains_sunset_cool_weather_minimalism.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    position: relative;
+}
+
+.weather-column{
+    margin: 20px;
+    height: 50%;
+    width: 15%;
+    background: rgb(255,255,239);
+    background: linear-gradient(180deg, rgba(255,255,239,1) 0%, rgba(240,240,240,0.85) 65%, rgba(176,176,176,0.8) 100%);
+    border-radius: 15px;
+    -webkit-box-shadow: 1px 1px 14px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 14px 5px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 14px 5px rgba(0,0,0,0.75);
+    padding: 15px;
+}
+.weather-block1-date{
+    float: right;
+    font-size: 40px;
+    font-weight: bold;  
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+.main-weather-icon img{
+    width: 120px;
+    height: 120px;
+    
+}
+
+.info-style{
+    font-size: 25px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin-top: 3vw;
+}
+.center{
+    text-align: center;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+
+/*------------------------------------*/
+
+
+.custom-shape-divider-bottom-1689871167 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    border-bottom: none;
+}
+
+.custom-shape-divider-bottom-1689871167 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 82px;
+}
+
+.custom-shape-divider-bottom-1689871167 .shape-fill {
+    fill: #FFFFFF;
+}
+
+textarea, input { outline: none; }
+
+
+
+#cityInput {
+    
+    width: 30vw;
+    padding: 5px;
+    font-size: 20px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    background-color:rgba(0, 0, 0, 0);
+    border-bottom: 2px solid #2c4b5c;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    -webkit-box-shadow: 0px 10px 29px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 29px -16px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 29px -16px rgba(0,0,0,0.75); 
+}
+#cityInput:active {
+    border-bottom: 2px solid #2c4b5c;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+  
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#suggestions li {
+  cursor: pointer;
+  padding: 5px;
+  
+  border-top: none;
+  border-bottom: none;
+  background-color: hsla(0, 0%, 91%, 0.927);
+  
+}
+#suggestions li:last-child{
+  
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#suggestions li:hover {
+  background-color: #f0f0f0;
+}
+ul{
+  position: absolute;
+  z-index: 1;
+  width: 30vw;
+   
+}
+form div{
+  width: 30vw;
+}
+form{
+  display: flex;
+  flex-direction: row;
+}
+.weatherinput{
+  display: flex;
+  flex-direction: column;
+}
+.search-sub-but{
+  border: none;
+  border-bottom: 2px solid #2c4b5c;
+  background-color:rgba(0, 0, 0, 0);
+  background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat  right;
+  background-size: 30px;
+  width:35px;
+  padding: 5px;
+  -webkit-box-shadow: 0px 10px 29px -16px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 29px -16px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 29px -16px rgba(0,0,0,0.75);
+}
+.forecast-tesx{
+  display: flex;
+  justify-content:center;
+  margin-top: 3vw;
+  font-weight: bold;
+  font-size: 45px;
+  color: #2c4b5c;
+  
+  
+}
+.forecast-tesx div{
+  border-bottom: 3px solid #2c4b5c;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 10px;
+}
+.weather-7-days-main{
+  margin-top: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  flex-wrap: wrap;
+}
+.weather-column-7-days{
+  
+  min-height: 15vw;
+  width: 10vw;
+  background: rgb(255,255,239);
+  background: linear-gradient(180deg, rgba(255,255,239,1) 0%, rgba(240,240,240,0.85) 65%, rgba(176,176,176,0.8) 100%);
+  border-radius: 15px;
+  -webkit-box-shadow: 1px 1px 14px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 14px 5px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 14px 5px rgba(0,0,0,0.75);
+  padding: 15px;
+}
+.icon-and-day{
+  display: flex;
+  justify-content: space-between;
+}
+.weather-7-icon{
+  margin-top: -10px;
+}
+.wether-7-day{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 20px;
+}
+.wether-7-info{
+  padding-top: 2vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.weather-7-days-hour-main{
+  margin-top: 5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.one-hour-block{
+  padding: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.forecast_block_hour {
+  opacity: 0; 
+  transition: opacity 0.5s ease; 
+}
+
+
+footer{
+  margin-top: 5vw;
+  width: 100%;
+  height: 15vw;
+  background-color:#2c4b5c;
+  -webkit-box-shadow: 0px -3px 8px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -3px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px -3px 8px 0px rgba(0,0,0,0.75);
+}
+  
